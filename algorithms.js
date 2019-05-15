@@ -1,14 +1,15 @@
-function isPrime(n) {
-  for (let i = 2; i < n / 2; i++) {
-    if (n % i == 0) return false;
+export function isPrime(n) {
+  if (n < 4) return false;
+  for (let i = 2; i <= n / 2; i++) {
+    if (n % i == 0) return true;
   }
-  return true;
+  return false;
 }
-console.log(isPrime(127));
 
-function getPrime(n) {
-  for (let i = 2; i < n / 2; i++) {
-    if (n % i == 0) console.log(i);
+export function getPrime(n) {
+  let primeArr = [];
+  for (let i = 2; i <= n / 2; i++) {
+    if (n % i == 0) primeArr.push(i);
   }
+  return primeArr;
 }
-getPrime(24);

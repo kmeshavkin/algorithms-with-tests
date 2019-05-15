@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "All algorithms from here: http://www.thatjsdude.com/interview/js1.html + Jest testing + ESLint",
   "main": "algorithms.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.13.0",
     "jest": "^24.8.0"
   },
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-google": "^0.13.0"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
