@@ -23,3 +23,37 @@ export function getPrime(n) {
   }
   return primeArr;
 }
+
+/**
+ * Returns nth Fibonacci number
+ * @param {Number} n nth number to get Fibonacci value from
+ * @return {Number} nth Fibonacci value
+ */
+export function fibonacci(n) {
+  if (isNaN(+n) || (n < 1)) return undefined;
+  let curr = 1;
+  let prev = 1;
+  for (let i = 3; i <= n; i++) {
+    curr += prev;
+    prev = curr - prev;
+  }
+  return curr;
+}
+
+/**
+ * Finds greatest common divisor of two numbers
+ * @param {Number} a Number 1
+ * @param {Number} b Number 2
+ * @return {Number} Return greatest common divisor if possible, otherwise return 1
+ */
+export function greatestCommonDivisor(a, b) {
+  let div = 2;
+  let gcdiv = 1;
+  if (isNaN(+a) || isNaN(+b)) return undefined;
+  if ((a < 2) || (b < 2)) return 1;
+  while ((a >= div) && (b >= div)) {
+    if ((a % div == 0) && (b % div == 0)) gcdiv = div;
+    div++;
+  }
+  return gcdiv;
+}
