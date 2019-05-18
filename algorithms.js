@@ -1,6 +1,6 @@
 /**
  * Returns true if number is prime, otherwise returns false.
- * @param {Integer} n Number to check.
+ * @param {number} n Number to check.
  * @return {boolean} Returns if number is prime or not.
  */
 export function isPrime(n) {
@@ -13,7 +13,7 @@ export function isPrime(n) {
 
 /**
  * Returns all Prime Factors from number
- * @param {Integer} n Number to get all Prime Factors from
+ * @param {number} n Number to get all Prime Factors from
  * @return {Array} The array that contains all Prime Factors
  */
 export function getPrime(n) {
@@ -26,8 +26,8 @@ export function getPrime(n) {
 
 /**
  * Returns nth Fibonacci number
- * @param {Integer} n nth number to get Fibonacci value from
- * @return {Integer} nth Fibonacci value
+ * @param {number} n nth number to get Fibonacci value from
+ * @return {number} nth Fibonacci value
  */
 export function fibonacci(n) {
   if (isNaN(+n) || (n < 1)) return undefined;
@@ -42,9 +42,9 @@ export function fibonacci(n) {
 
 /**
  * Finds greatest common divisor of two numbers
- * @param {Integer} a Number 1
- * @param {Integer} b Number 2
- * @return {Integer} Return greatest common divisor if possible, otherwise return 1
+ * @param {number} a Number 1
+ * @param {number} b Number 2
+ * @return {number} Return greatest common divisor if possible, otherwise return 1
  */
 export function greatestCommonDivisor(a, b) {
   let div = 2;
