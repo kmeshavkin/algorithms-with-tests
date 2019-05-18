@@ -1,4 +1,11 @@
-import { isPrime, getPrime, fibonacci, greatestCommonDivisor as gcd} from './algorithms';
+import {
+  isPrime,
+  getPrime,
+  fibonacci,
+  greatestCommonDivisor as gcd,
+  removeDuplicates,
+  mergeSortedArrays as msa,
+} from './algorithms';
 
 describe('isPrime', () => {
   test(`not number is NOT a prime`, () => expect(isPrime('abc')).toBe(false));
@@ -32,3 +39,20 @@ describe('greatestCommonDivisor', () => {
   test(`(3, 6) returns 3`, () => expect(gcd(3, 6)).toBe(3));
   test(`(18, 24) returns 6`, () => expect(gcd(18, 24)).toBe(6));
 });
+
+describe('removeDuplicates', () => {
+  test(`Removes duplicate correctly`, () => expect(removeDuplicates([1, 2, 2, 3, 1, 6])).toEqual([1, 2, 3, 6]));
+  test(`Do not modifies source array`, () => {
+    const testArr = [1, 2, 2, 3];
+    const tempArr = [...testArr];
+    removeDuplicates(testArr);
+    expect(testArr).toEqual(tempArr);
+  });
+});
+
+describe('mergedSortedArray', () => {
+  test(`Merges arrays and stays sorted`, () => expect(msa([1, 3, 7], [4, 5, 9])).toEqual([1, 3, 4, 5, 7, 9]));
+  test(`Merges arrays with different lengths`, () => expect(msa([1, 3], [4, 5, 9])).toEqual([1, 3, 4, 5, 9])); // Тут надо улучшить тест кейсом где и левый меньше правого, и правый меньше левого
+  test(`Merges empty arrays`, () => expect(msa([1, 3, 7], [])).toEqual([1, 3, 7]));
+});
+
