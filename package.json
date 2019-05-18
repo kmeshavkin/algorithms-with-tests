@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "All algorithms from here: http://www.thatjsdude.com/interview/js1.html + Jest testing + ESLint",
   "main": "algorithms.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/jest": "^24.0.13"
+  },
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "eslint": "^5.16.0",
