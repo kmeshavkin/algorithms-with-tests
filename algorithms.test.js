@@ -5,6 +5,10 @@ import {
   greatestCommonDivisor as gcd,
   removeDuplicates,
   mergeSortedArrays as msa,
+  swapVariables,
+  valuesReverse,
+  reverseWords,
+  reverseInPlace,
 } from './algorithms';
 
 describe('isPrime', () => {
@@ -63,3 +67,30 @@ describe('mergedSortedArray', () => {
   });
 });
 
+describe('swapVariables', () => {
+  test('Swaps first two elements', () => expect(swapVariables([1, 2])).toEqual([2, 1]));
+  test('Swaps first element with specified element', () => expect(swapVariables([1, 2, 3, 4], 2)).toEqual([3, 2, 1, 4]));
+  test('Swaps two specified elements', () => expect(swapVariables([1, 2, 3, 4], 1, 3)).toEqual([1, 4, 3, 2]));
+  test('Does NOT swap if indexes are outside of boundaries', () => {
+    expect(swapVariables([1, 2], 0, 2)).toEqual([1, 2])
+      && expect(swapVariables([1, 2], -1, 1)).toEqual([1, 2])
+      && expect(swapVariables([1, 2], -1, 2)).toEqual([1, 2]);
+  });
+});
+
+describe('valuesReverse', () => {
+  test('Reverses characters in string', () => expect(valuesReverse('Hello')).toBe('olleH'));
+  test('Reverses characters in array', () => expect(valuesReverse([1, 2, 3, 4, 5])).toEqual([5, 4, 3, 2, 1]));
+});
+
+describe('reverseWords', () => {
+  test('Reverses words correctly', () => expect(reverseWords('Hello new beautiful world!')).toBe('world! beautiful new Hello'));
+  test('Does not do anything if only one word is present', () => expect(reverseWords('Word')).toBe('Word'));
+});
+
+describe('reverseInPlace', () => {
+  test('Reverses characters in words correctly', () => expect(reverseInPlace('Hello new beautiful world!')).toBe('olleH wen lufituaeb !dlrow'));
+  test('Reverses correctly if there\'s only one word', () => expect(reverseInPlace('Word')).toBe('droW'));
+});
+
+// Добавить тестов, которые дают на вход не те типы (во все тесты)

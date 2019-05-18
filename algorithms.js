@@ -96,3 +96,53 @@ export function mergeSortedArrays(arr1, arr2) {
   }
   return returnArr;
 }
+
+/**
+ * Swap variable without temp. I modified this task a bit so it also returns testable code and made it a bit harder
+ * @param {Array} arr Input array
+ * @param {number} i Second index to swap
+ * @param {number} j First index to swap
+ * @return {Array} Resulting array
+ */
+export function swapVariables([...arr], i = 1, j = 0) {
+  if (i < arr.length && j < arr.length) {
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+/**
+ * Reverses all characters in string. It actually works for any type that has length (String or Array)
+ * @param {string|Array} input Input string
+ * @return {string|Array} Reversed string
+ */
+export function valuesReverse(input) {
+  const output = [...input];
+  for (let i = 0, j = output.length - 1; i < j; i++, j--) {
+    [output[i], output[j]] = [output[j], output[i]];
+  }
+  if (typeof input == 'string') return output.join(''); else return output;
+}
+
+/**
+ * Reverses words positions in a string
+ * @param {string} str Input string
+ * @return {string} String with words reversed
+ */
+export function reverseWords(str) {
+  return str.split(' ').reverse().join(' ');
+}
+
+/**
+ * Reverses characters in every word in input string
+ * @param {string} str Input string
+ * @return {string} String with reversed words
+ */
+export function reverseInPlace(str) {
+  return str
+      .split(' ')
+      .map((x) => x
+          .split('')
+          .reverse()
+          .join(''))
+      .join(' ');
+}
