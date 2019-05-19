@@ -12,9 +12,9 @@ export function isPrime(n) {
 }
 
 /**
- * Returns all Prime Factors from number
- * @param {number} n Number to get all Prime Factors from
- * @return {Array} The array that contains all Prime Factors
+ * Returns all Prime Factors from number.
+ * @param {number} n Number to get all Prime Factors from.
+ * @return {Array} The array that contains all Prime Factors.
  */
 export function getPrime(n) {
   const primeArr = [];
@@ -25,9 +25,9 @@ export function getPrime(n) {
 }
 
 /**
- * Returns nth Fibonacci number
- * @param {number} n nth number to get Fibonacci value from
- * @return {number} nth Fibonacci value
+ * Returns nth Fibonacci number.
+ * @param {number} n nth number to get Fibonacci value from.
+ * @return {number} nth Fibonacci value.
  */
 export function fibonacci(n) {
   if (isNaN(+n) || (n < 1)) return undefined;
@@ -41,10 +41,10 @@ export function fibonacci(n) {
 }
 
 /**
- * Finds greatest common divisor of two numbers
- * @param {number} a Number 1
- * @param {number} b Number 2
- * @return {number} Return greatest common divisor if possible, otherwise return 1
+ * Finds greatest common divisor of two numbers.
+ * @param {number} a Number 1.
+ * @param {number} b Number 2.
+ * @return {number} Return greatest common divisor if possible, otherwise return 1.
  */
 export function greatestCommonDivisor(a, b) {
   let div = 2;
@@ -59,9 +59,9 @@ export function greatestCommonDivisor(a, b) {
 }
 
 /**
- * Removes duplicates from copy of provided number array, returning modified array
- * @param {Array} arr Number array to remove duplicates from
- * @return {Array} Array without duplicates
+ * Removes duplicates from copy of provided number array, returning modified array.
+ * @param {Array} arr Number array to remove duplicates from.
+ * @return {Array} Array without duplicates.
  */
 export function removeDuplicates(arr) {
   const memoryArr = [];
@@ -76,10 +76,10 @@ export function removeDuplicates(arr) {
 }
 
 /**
- * Merges two sorted arrays and returns another sorted array
- * @param {Array} arr1 First sorted array
- * @param {Array} arr2 Second sorted array
- * @return {Array} Merged sorted array
+ * Merges two sorted arrays and returns another sorted array.
+ * @param {Array} arr1 First sorted array.
+ * @param {Array} arr2 Second sorted array.
+ * @return {Array} Merged sorted array.
  */
 export function mergeSortedArrays(arr1, arr2) {
   const returnArr = [];
@@ -98,11 +98,11 @@ export function mergeSortedArrays(arr1, arr2) {
 }
 
 /**
- * Swap variable without temp. I modified this task a bit so it also returns testable code and made it a bit harder
- * @param {Array} arr Input array
- * @param {number} i Second index to swap
- * @param {number} j First index to swap
- * @return {Array} Resulting array
+ * Swap variable without temp. I modified this task a bit so it also returns testable code and made it a bit harder.
+ * @param {Array} arr Input array.
+ * @param {number} i Second index to swap.
+ * @param {number} j First index to swap.
+ * @return {Array} Resulting array.
  */
 export function swapVariables([...arr], i = 1, j = 0) {
   if (i < arr.length && j < arr.length) {
@@ -111,9 +111,9 @@ export function swapVariables([...arr], i = 1, j = 0) {
   return arr;
 }
 /**
- * Reverses all characters in string. It actually works for any type that has length (String or Array)
- * @param {string|Array} input Input string
- * @return {string|Array} Reversed string
+ * Reverses all characters in string. It actually works for any type that has length (String or Array).
+ * @param {string|Array} input Input string.
+ * @return {string|Array} Reversed string.
  */
 export function valuesReverse(input) {
   const output = [...input];
@@ -124,18 +124,18 @@ export function valuesReverse(input) {
 }
 
 /**
- * Reverses words positions in a string
- * @param {string} str Input string
- * @return {string} String with words reversed
+ * Reverses words positions in a string.
+ * @param {string} str Input string.
+ * @return {string} String with words reversed.
  */
 export function reverseWords(str) {
   return str.split(' ').reverse().join(' ');
 }
 
 /**
- * Reverses characters in every word in input string
- * @param {string} str Input string
- * @return {string} String with reversed words
+ * Reverses characters in every word in input string.
+ * @param {string} str Input string.
+ * @return {string} String with reversed words.
  */
 export function reverseInPlace(str) {
   return str
