@@ -9,6 +9,8 @@ import {
   valuesReverse,
   reverseWords,
   reverseInPlace,
+  missingNumber,
+  sumOfTwo,
 } from './algorithms';
 
 describe('isPrime', () => {
@@ -91,6 +93,16 @@ describe('reverseWords', () => {
 describe('reverseInPlace', () => {
   test('Reverses characters in words correctly', () => expect(reverseInPlace('Hello new beautiful world!')).toBe('olleH wen lufituaeb !dlrow'));
   test('Reverses correctly if there\'s only one word', () => expect(reverseInPlace('Word')).toBe('droW'));
+});
+
+describe('missingNumber', () => {
+  test('Finds 3 in [1, 5, 4, 2, 6]', () => expect(missingNumber([1, 5, 4, 2, 6])).toBe(3));
+});
+
+describe('sumOfTwo', () => {
+  test('Returns true if pair is in array', () => expect(sumOfTwo([1, 3, 3, 4, 6, 0], 5)).toBe(true));
+  test('Returns false if there\'s no pairs in array', () => expect(sumOfTwo([1, 3, 3, 4, 6, 0], 2)).toBe(false));
+  test('Works with negative numbers', () => expect(sumOfTwo([-1, 3, 3, 4, 6, 0], 2)).toBe(true));
 });
 
 // Добавить тестов, которые дают на вход не те типы (во все тесты)
