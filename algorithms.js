@@ -4,11 +4,11 @@
  * @return {boolean} Returns if number is prime or not.
  */
 export function isPrime(n) {
-  if (n < 4) return false;
+  if (isNaN(+n) || (n <= 1)) return false;
   for (let i = 2; i <= n / 2; i++) {
-    if (n % i == 0) return true;
+    if (n % i == 0) return false;
   }
-  return false;
+  return true;
 }
 
 /**

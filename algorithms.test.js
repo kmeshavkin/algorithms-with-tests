@@ -21,8 +21,8 @@ describe('isPrime', () => {
   test('0 is NOT a prime', () => expect(isPrime(0)).toBe(false));
   test('1 is NOT a prime', () => expect(isPrime(1)).toBe(false));
   test('negative number is NOT a prime', () => expect(isPrime(-1)).toBe(false));
-  test('3 is a prime', () => expect(isPrime(3)).toBe(false));
-  test('4 is NOT a prime', () => expect(isPrime(4)).toBe(true));
+  test('finds primes', () => expect(isPrime(3)).toBe(true));
+  test('finds non-primes', () => expect(isPrime(4)).toBe(false));
 });
 
 describe('getPrime', () => {
