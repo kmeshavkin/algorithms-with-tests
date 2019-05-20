@@ -146,3 +146,43 @@ export function reverseInPlace(str) {
           .join(''))
       .join(' ');
 }
+
+/**
+ * Finds first non repeating char in string (case sensitive).
+ * @param {string} str Input string.
+ * @return {string} First non repeating char.
+ */
+export function firstNonRepeatingChar(str) {
+  const hash = [];
+  for (let i = 0; i < str.length; i++) {
+    hash[str[i]] = (hash[str[i]] + 1) || 1;
+  }
+  for (const el in hash) {
+    if (hash[el] == 1) return el;
+  }
+  return undefined;
+}
+
+/**
+ * Removes duplicate chars from string (case sensitive).
+ * @param {string} str Input string.
+ * @return {string} Resulting string with removed duplicates.
+ */
+export function removeDuplicateChar(str) {
+  const hash = [];
+  let outputStr = '';
+  for (let i = 0; i < str.length; i++) {
+    hash[str[i]] = (hash[str[i]] + 1) || 1;
+    if (hash[str[i]] == 1) outputStr += str[i];
+  }
+  return outputStr;
+}
+
+/**
+ * Verifies if a word a palindrome. Can be also done with for loop, but this is more consise.
+ * @param {string} str Input string.
+ * @return {boolean} True if palindrome, otherwise false.
+ */
+export function checkPalindrome(str) {
+  return (str.split('').reverse().join('') == str);
+}

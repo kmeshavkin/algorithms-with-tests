@@ -9,6 +9,9 @@ import {
   valuesReverse,
   reverseWords,
   reverseInPlace,
+  firstNonRepeatingChar as fnrc,
+  removeDuplicateChar as rdc,
+  checkPalindrome,
 } from './algorithms';
 
 describe('isPrime', () => {
@@ -91,6 +94,27 @@ describe('reverseWords', () => {
 describe('reverseInPlace', () => {
   test('Reverses characters in words correctly', () => expect(reverseInPlace('Hello new beautiful world!')).toBe('olleH wen lufituaeb !dlrow'));
   test('Reverses correctly if there\'s only one word', () => expect(reverseInPlace('Word')).toBe('droW'));
+});
+
+describe('firstNonRepeatingChar', () => {
+  test('Should find \'f\' in string \'the quick brown fox jumps then quickly blow air\'', () => {
+    expect(fnrc('the quick brown fox jumps then quickly blow air')).toBe('f');
+  });
+  test('Should return undefined if found none', () => expect(fnrc('aabbbccdd')).toBeUndefined());
+  test('Should be case sensitive', () => expect(fnrc('aAb')).toBe('a'));
+});
+
+describe('removeDuplicateChar', () => {
+  test('Should return \'the quickbrownfxjmpslya\' from string \'the quick brown fox jumps then quickly blow air\'', () => {
+    expect(rdc('the quick brown fox jumps then quickly blow air')).toBe('the quickbrownfxjmpslya');
+  });
+  test('Should be case sensitive', () => expect(rdc('abAabbBcDd')).toBe('abABcDd'));
+});
+
+describe('checkPalindrome', () => {
+  test('\'abcba\' returns true', () => expect(checkPalindrome('abcba')).toBe(true));
+  test('\'abcb\' returns false', () => expect(checkPalindrome('abcb')).toBe(false));
+  test('\'a\' returns true', () => expect(checkPalindrome('a')).toBe(true));
 });
 
 // Добавить тестов, которые дают на вход не те типы (во все тесты)
