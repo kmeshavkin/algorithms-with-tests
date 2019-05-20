@@ -12,6 +12,8 @@ import {
   firstNonRepeatingChar as fnrc,
   removeDuplicateChar as rdc,
   checkPalindrome,
+  missingNumber,
+  sumOfTwo,
 } from './algorithms';
 
 describe('isPrime', () => {
@@ -115,6 +117,16 @@ describe('checkPalindrome', () => {
   test('\'abcba\' returns true', () => expect(checkPalindrome('abcba')).toBe(true));
   test('\'abcb\' returns false', () => expect(checkPalindrome('abcb')).toBe(false));
   test('\'a\' returns true', () => expect(checkPalindrome('a')).toBe(true));
+});
+
+describe('missingNumber', () => {
+  test('Finds 3 in [1, 5, 4, 2, 6]', () => expect(missingNumber([1, 5, 4, 2, 6])).toBe(3));
+});
+
+describe('sumOfTwo', () => {
+  test('Returns true if pair is in array', () => expect(sumOfTwo([1, 3, 3, 4, 6, 0], 5)).toBe(true));
+  test('Returns false if there\'s no pairs in array', () => expect(sumOfTwo([1, 3, 3, 4, 6, 0], 2)).toBe(false));
+  test('Works with negative numbers', () => expect(sumOfTwo([-1, 3, 3, 4, 6, 0], 2)).toBe(true));
 });
 
 // Добавить тестов, которые дают на вход не те типы (во все тесты)

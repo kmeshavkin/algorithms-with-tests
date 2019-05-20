@@ -186,3 +186,31 @@ export function removeDuplicateChar(str) {
 export function checkPalindrome(str) {
   return (str.split('').reverse().join('') == str);
 }
+
+/** Find one missing number in unsorted array.
+ * @param {Array} arr Array with missing number.
+ * @return {number} Missing number.
+ */
+export function missingNumber(arr) {
+  const fullSum = (arr.length + 2) * (arr.length + 1) / 2;
+  let missingSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    missingSum += arr[i];
+  }
+  return fullSum - missingSum;
+}
+
+/**
+ * From a unsorted array, check whether there are any two numbers that will sum up to a given number.
+ * @param {Array} arr Array to find pairs in.
+ * @param {number} num Sum to find in array.
+ * @return {boolean} Found pair or not.
+ */
+export function sumOfTwo(arr, num = 0) {
+  const hash = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (hash[arr[i]]) return true;
+    hash[num - arr[i]] = true;
+  }
+  return false;
+}
