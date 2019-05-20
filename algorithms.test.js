@@ -14,6 +14,7 @@ import {
   checkPalindrome,
   missingNumber,
   sumOfTwo,
+  biggestSum,
 } from './algorithms';
 
 describe('isPrime', () => {
@@ -119,9 +120,14 @@ describe('missingNumber', () => {
 });
 
 describe('sumOfTwo', () => {
-  test('Returns true if pair is in array', () => expect(sumOfTwo([1, 3, 3, 4, 6, 0], 5)).toBe(true));
-  test('Returns false if there\'s no pairs in array', () => expect(sumOfTwo([1, 3, 3, 4, 6, 0], 2)).toBe(false));
-  test('Works with negative numbers', () => expect(sumOfTwo([-1, 3, 3, 4, 6, 0], 2)).toBe(true));
+  test('returns true if pair is in array', () => expect(sumOfTwo([1, 3, 3, 4, 6, 0], 5)).toBe(true));
+  test('returns false if there\'s no pairs in array', () => expect(sumOfTwo([1, 3, 3, 4, 6, 0], 2)).toBe(false));
+  test('works with negative numbers', () => expect(sumOfTwo([-1, 3, 3, 4, 6, 0], 2)).toBe(true));
 });
 
-// TODO Добавить тестов, которые дают на вход не те типы (во все тесты)
+describe('biggestSum', () => {
+  test('finds biggest sum', () => expect(biggestSum([1, 6, 3, 9, 5, 5, 7])).toBe(16));
+  test('works with negative numbers', () => expect(biggestSum([-7, -11, -5, 4])).toBe(-1));
+  test('works if array has length of 1', () => expect(biggestSum([6])).toBe(6));
+  test('works if array has length of 0', () => expect(biggestSum([])).toBe(0));
+});

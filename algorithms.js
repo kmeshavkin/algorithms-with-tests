@@ -214,3 +214,23 @@ export function sumOfTwo(arr, num = 0) {
   }
   return false;
 }
+
+/**
+ * Finds the largest sum of any two elements.
+ * @param {Array} arr Array to find sum from.
+ * @return {number} Biggest sum.
+ */
+export function biggestSum(arr) {
+  let biggest = (arr[0] > arr[1]) ? arr[0] : arr[1];
+  let bigger = (arr[0] > arr[1]) ? arr[1] : arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > biggest) {
+      bigger = biggest;
+      biggest = arr[i];
+    } else if (arr[i] > bigger) {
+      bigger = arr[i];
+    }
+  }
+
+  return (biggest || 0) + (bigger || 0);
+}
