@@ -26,10 +26,10 @@ describe('isPrime', () => {
 });
 
 describe('getPrime', () => {
-  test('not number returns no primes', () => expect(getPrime('abc')).toEqual([]));
-  test('3 has no primes', () => expect(getPrime(3)).toEqual([]));
-  test('4 has prime [2]', () => expect(getPrime(4)).toEqual([2]));
-  test('24 has primes [2, 3, 4, 6, 8, 12]', () => expect(getPrime(24)).toEqual([2, 3, 4, 6, 8, 12]));
+  test('not number returns empty array', () => expect(getPrime('abc')).toEqual([]));
+  test('returns empty array for non-primes', () => expect(getPrime(3)).toEqual([]));
+  test('finds prime for simple numbers', () => expect(getPrime(4)).toEqual([2]));
+  test('works with more complex numbers', () => expect(getPrime(24)).toEqual([2, 3, 4, 6, 8, 12]));
 });
 
 describe('fibonacci', () => {
@@ -38,20 +38,19 @@ describe('fibonacci', () => {
   test('negative returns undefined', () => expect(fibonacci(-1)).toBeUndefined());
   test('1 returns 1', () => expect(fibonacci(1)).toBe(1));
   test('2 returns 1', () => expect(fibonacci(2)).toBe(1));
-  test('5 returns 5', () => expect(fibonacci(5)).toBe(5));
-  test('10 returns 55', () => expect(fibonacci(10)).toBe(55));
+  test('returns correct fibonacci number', () => expect(fibonacci(10)).toBe(55));
 });
 
 describe('greatestCommonDivisor', () => {
   test('not number returns undefined', () => expect(gcd('abc', 1)).toBeUndefined());
   test('zero or negative returns 1', () => expect(gcd(0, -1)).toBe(1));
-  test('(3, 6) returns 3', () => expect(gcd(3, 6)).toBe(3));
-  test('(18, 24) returns 6', () => expect(gcd(18, 24)).toBe(6));
+  test('works with prime numbers', () => expect(gcd(3, 6)).toBe(3));
+  test('works with non-prime numbers', () => expect(gcd(18, 24)).toBe(6));
 });
 
 describe('removeDuplicates', () => {
-  test('Removes duplicate correctly', () => expect(removeDuplicates([1, 2, 2, 3, 1, 6])).toEqual([1, 2, 3, 6]));
-  test('Does not modifies source array', () => {
+  test('removes duplicate correctly', () => expect(removeDuplicates([1, 2, 2, 3, 1, 6])).toEqual([1, 2, 3, 6]));
+  test('does not modifies source array', () => {
     const testArr = [1, 2, 2, 3];
     const tempArr = [...testArr];
     removeDuplicates(testArr);
@@ -60,12 +59,12 @@ describe('removeDuplicates', () => {
 });
 
 describe('mergedSortedArray', () => {
-  test('Merges arrays and stays sorted', () => expect(msa([1, 3, 7], [4, 5, 9])).toEqual([1, 3, 4, 5, 7, 9]));
-  test('Merges arrays with different lengths', () => {
+  test('merges arrays and stays sorted', () => expect(msa([1, 3, 7], [4, 5, 9])).toEqual([1, 3, 4, 5, 7, 9]));
+  test('merges arrays with different lengths', () => {
     expect(msa([1, 3], [4, 5, 9])).toEqual([1, 3, 4, 5, 9])
       && expect(msa([1, 3, 7], [4, 5])).toEqual([1, 3, 4, 5, 9]);
   });
-  test('Merges empty arrays', () => {
+  test('merges empty arrays', () => {
     expect(msa([1, 3, 7], [])).toEqual([1, 3, 7])
       && expect(msa([], [4, 5, 9])).toEqual([4, 5, 9])
       && expect(msa([], [])).toEqual([]);
@@ -73,10 +72,10 @@ describe('mergedSortedArray', () => {
 });
 
 describe('swapVariables', () => {
-  test('Swaps first two elements', () => expect(swapVariables([1, 2])).toEqual([2, 1]));
-  test('Swaps first element with specified element', () => expect(swapVariables([1, 2, 3, 4], 2)).toEqual([3, 2, 1, 4]));
-  test('Swaps two specified elements', () => expect(swapVariables([1, 2, 3, 4], 1, 3)).toEqual([1, 4, 3, 2]));
-  test('Does NOT swap if indexes are outside of boundaries', () => {
+  test('swaps first two elements', () => expect(swapVariables([1, 2])).toEqual([2, 1]));
+  test('swaps first element with specified element', () => expect(swapVariables([1, 2, 3, 4], 2)).toEqual([3, 2, 1, 4]));
+  test('swaps two specified elements', () => expect(swapVariables([1, 2, 3, 4], 1, 3)).toEqual([1, 4, 3, 2]));
+  test('does NOT swap if indexes are outside of boundaries', () => {
     expect(swapVariables([1, 2], 0, 2)).toEqual([1, 2])
       && expect(swapVariables([1, 2], -1, 1)).toEqual([1, 2])
       && expect(swapVariables([1, 2], -1, 2)).toEqual([1, 2]);
@@ -84,43 +83,39 @@ describe('swapVariables', () => {
 });
 
 describe('valuesReverse', () => {
-  test('Reverses characters in string', () => expect(valuesReverse('Hello')).toBe('olleH'));
-  test('Reverses characters in array', () => expect(valuesReverse([1, 2, 3, 4, 5])).toEqual([5, 4, 3, 2, 1]));
+  test('should reverse characters in string', () => expect(valuesReverse('Hello')).toBe('olleH'));
+  test('should reverse characters in array', () => expect(valuesReverse([1, 2, 3, 4, 5])).toEqual([5, 4, 3, 2, 1]));
 });
 
 describe('reverseWords', () => {
-  test('Reverses words correctly', () => expect(reverseWords('Hello new beautiful world!')).toBe('world! beautiful new Hello'));
-  test('Does not do anything if only one word is present', () => expect(reverseWords('Word')).toBe('Word'));
+  test('reverses words correctly', () => expect(reverseWords('Hello new beautiful world!')).toBe('world! beautiful new Hello'));
+  test('should not do anything if only one word is present', () => expect(reverseWords('Word')).toBe('Word'));
 });
 
 describe('reverseInPlace', () => {
-  test('Reverses characters in words correctly', () => expect(reverseInPlace('Hello new beautiful world!')).toBe('olleH wen lufituaeb !dlrow'));
-  test('Reverses correctly if there\'s only one word', () => expect(reverseInPlace('Word')).toBe('droW'));
+  test('reverses characters in words correctly', () => expect(reverseInPlace('Hello new beautiful world!')).toBe('olleH wen lufituaeb !dlrow'));
+  test('reverses correctly if there\'s only one word', () => expect(reverseInPlace('Word')).toBe('droW'));
 });
 
 describe('firstNonRepeatingChar', () => {
-  test('Should find \'f\' in string \'the quick brown fox jumps then quickly blow air\'', () => {
-    expect(fnrc('the quick brown fox jumps then quickly blow air')).toBe('f');
-  });
-  test('Should return undefined if found none', () => expect(fnrc('aabbbccdd')).toBeUndefined());
-  test('Should be case sensitive', () => expect(fnrc('aAb')).toBe('a'));
+  test('finds first non repeating char correctly', () => expect(fnrc('the quick brown fox jumps then quickly blow air')).toBe('f'));
+  test('returns undefined if found none', () => expect(fnrc('aabbbccdd')).toBeUndefined());
+  test('should be case sensitive', () => expect(fnrc('aAb')).toBe('a'));
 });
 
 describe('removeDuplicateChar', () => {
-  test('Should return \'the quickbrownfxjmpslya\' from string \'the quick brown fox jumps then quickly blow air\'', () => {
-    expect(rdc('the quick brown fox jumps then quickly blow air')).toBe('the quickbrownfxjmpslya');
-  });
-  test('Should be case sensitive', () => expect(rdc('abAabbBcDd')).toBe('abABcDd'));
+  test('removes all duplicates correctly', () => expect(rdc('the quick brown fox jumps then quickly blow air')).toBe('the quickbrownfxjmpslya'));
+  test('should be case sensitive', () => expect(rdc('abAabbBcDd')).toBe('abABcDd'));
 });
 
 describe('checkPalindrome', () => {
-  test('\'abcba\' returns true', () => expect(checkPalindrome('abcba')).toBe(true));
-  test('\'abcb\' returns false', () => expect(checkPalindrome('abcb')).toBe(false));
-  test('\'a\' returns true', () => expect(checkPalindrome('a')).toBe(true));
+  test('returns true if word is a palindrome', () => expect(checkPalindrome('abcba')).toBe(true));
+  test('returns false if word is NOT a palindrome', () => expect(checkPalindrome('abcb')).toBe(false));
+  test('returns true if string has length of 1', () => expect(checkPalindrome('a')).toBe(true));
 });
 
 describe('missingNumber', () => {
-  test('Finds 3 in [1, 5, 4, 2, 6]', () => expect(missingNumber([1, 5, 4, 2, 6])).toBe(3));
+  test('finds missing number', () => expect(missingNumber([1, 5, 4, 2, 6])).toBe(3));
 });
 
 describe('sumOfTwo', () => {

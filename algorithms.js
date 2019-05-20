@@ -98,7 +98,7 @@ export function mergeSortedArrays(arr1, arr2) {
 }
 
 /**
- * Swap variable without temp. I modified this task a bit so it also returns testable code and made it a bit harder.
+ * Swaps variable without temp. I modified this task a bit so it also returns testable code and made it a bit harder.
  * @param {Array} arr Input array.
  * @param {number} i Second index to swap.
  * @param {number} j First index to swap.
@@ -187,7 +187,7 @@ export function checkPalindrome(str) {
   return (str.split('').reverse().join('') == str);
 }
 
-/** Find one missing number in unsorted array.
+/** Finds one missing number in unsorted array.
  * @param {Array} arr Array with missing number.
  * @return {number} Missing number.
  */
@@ -201,7 +201,7 @@ export function missingNumber(arr) {
 }
 
 /**
- * From a unsorted array, check whether there are any two numbers that will sum up to a given number.
+ * Checks whether there are any two numbers that will sum up to a given numberin a unsorted array.
  * @param {Array} arr Array to find pairs in.
  * @param {number} num Sum to find in array.
  * @return {boolean} Found pair or not.
