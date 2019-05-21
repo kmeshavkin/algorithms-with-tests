@@ -98,7 +98,8 @@ export function mergeSortedArrays(arr1, arr2) {
 }
 
 /**
- * Swaps variable without temp. I modified this task a bit so it also returns testable code and made it a bit harder.
+ * Swaps variable without temp.
+ * I modified this task a bit so it also returns testable code and made it a bit harder.
  * @param {Array} arr Input array.
  * @param {number} i Second index to swap.
  * @param {number} j First index to swap.
@@ -236,9 +237,10 @@ export function biggestSum(arr) {
 }
 
 /**
- * Counts Total number of zeros from 1 upto n. DESC
- * @param {number} n Number to count zeros from
- * @return {number} Number of zeros in n
+ * Counts Total number of zeros from 1 upto n.
+ * I found that mathematical solution instead of loop-based is better, so I chose it.
+ * @param {number} n Number to count zeros from.
+ * @return {number} Number of zeros in n.
  */
 export function countZeros(n) {
   const arr = [...String(n)];
