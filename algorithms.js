@@ -250,3 +250,41 @@ export function countZeros(n) {
   }
   return accumulator;
 }
+
+/**
+ * Matches substring of a string.
+ * I'd just use .search(), but here's solution without it or any other find method.
+ * @param {string} str String to find substring from.
+ * @param {string} substr Substring to find in str.
+ * @return {number} Index of substring if found, otherwise -1.
+ */
+export function subString(str, substr) {
+  for (let i = 0; i < str.length; i++) {
+    for (let j = 0; j < substr.length; j++) {
+      if (substr[j] != str[i + j]) break;
+      else {
+        if (j == substr.length - 1) return i;
+      }
+    }
+  }
+  return -1;
+}
+
+/**
+ * Creates all permutations of a string.
+ * @param {string} str String to create permutations from.
+ * @return {Array} All possible permutations of string.
+ */
+export function permutations(str) {
+  if (str.length < 2) return [str];
+  let arr = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str.length > 2) {
+      const retArr = permutations(str.slice(0, i) + str.slice(i + 1, str.length));
+      arr = arr.concat(retArr.map((x) => str[i] + x));
+    } else {
+      return [str, str[1] + str[0]];
+    }
+  }
+  return arr;
+}

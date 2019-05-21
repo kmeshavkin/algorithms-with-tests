@@ -16,6 +16,8 @@ import {
   sumOfTwo,
   biggestSum,
   countZeros,
+  subString,
+  permutations,
 } from './algorithms';
 
 describe('isPrime', () => {
@@ -145,4 +147,26 @@ describe('countZeros', () => {
     expect(countZeros([1, 2, 3])).toBeNaN();
     expect(countZeros({a: 1})).toBeNaN();
   });
+});
+
+describe('subString', () => {
+  test('Matches substring correctly', () => expect(subString('abcdefg', 'cd')).toBe(2));
+  test('Matches substring of one symbol', () => expect(subString('abcdefg', 'd')).toBe(3));
+  test('Matches substring in the start', () => expect(subString('abcdefg', 'abc')).toBe(0));
+  test('Matches substring in the end', () => expect(subString('abcdefg', 'g')).toBe(6));
+  test('Returns -1 if no substring found', () => expect(subString('abcdefg', 'gh')).toBe(-1));
+});
+
+describe('permutations', () => {
+  test('Correctly returns all permutations of a string', () => {
+    expect(permutations('1a').sort()).toEqual(['1a', 'a1'].sort());
+    expect(permutations('abc').sort()).toEqual(['abc', 'acb', 'bac', 'bca', 'cab', 'cba'].sort());
+    expect(permutations('1234').sort()).toEqual([
+      '1234', '1243', '1324', '1342', '1423', '1432',
+      '2134', '2143', '2314', '2341', '2413', '2431',
+      '3124', '3142', '3214', '3241', '3412', '3421',
+      '4123', '4132', '4213', '4231', '4312', '4321',
+    ].sort());
+  });
+  test('Permutation of string of length 1 is the string itself in array', () => expect(permutations('a')).toEqual(['a']));
 });
