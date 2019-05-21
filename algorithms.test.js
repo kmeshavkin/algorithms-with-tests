@@ -62,13 +62,13 @@ describe('removeDuplicates', () => {
 describe('mergedSortedArray', () => {
   test('merges arrays and stays sorted', () => expect(msa([1, 3, 7], [4, 5, 9])).toEqual([1, 3, 4, 5, 7, 9]));
   test('merges arrays with different lengths', () => {
-    expect(msa([1, 3], [4, 5, 9])).toEqual([1, 3, 4, 5, 9])
-      && expect(msa([1, 3, 7], [4, 5])).toEqual([1, 3, 4, 5, 9]);
+    expect(msa([1, 3], [4, 5, 9])).toEqual([1, 3, 4, 5, 9]);
+    expect(msa([1, 3, 7], [4, 5])).toEqual([1, 3, 4, 5, 7]);
   });
   test('merges empty arrays', () => {
-    expect(msa([1, 3, 7], [])).toEqual([1, 3, 7])
-      && expect(msa([], [4, 5, 9])).toEqual([4, 5, 9])
-      && expect(msa([], [])).toEqual([]);
+    expect(msa([1, 3, 7], [])).toEqual([1, 3, 7]);
+    expect(msa([], [4, 5, 9])).toEqual([4, 5, 9]);
+    expect(msa([], [])).toEqual([]);
   });
 });
 
@@ -77,9 +77,9 @@ describe('swapVariables', () => {
   test('swaps first element with specified element', () => expect(swapVariables([1, 2, 3, 4], 2)).toEqual([3, 2, 1, 4]));
   test('swaps two specified elements', () => expect(swapVariables([1, 2, 3, 4], 1, 3)).toEqual([1, 4, 3, 2]));
   test('does NOT swap if indexes are outside of boundaries', () => {
-    expect(swapVariables([1, 2], 0, 2)).toEqual([1, 2])
-      && expect(swapVariables([1, 2], -1, 1)).toEqual([1, 2])
-      && expect(swapVariables([1, 2], -1, 2)).toEqual([1, 2]);
+    expect(swapVariables([1, 2], 0, 2)).toEqual([1, 2]);
+    expect(swapVariables([1, 2], -1, 1)).toEqual([1, 2]);
+    expect(swapVariables([1, 2], -1, 2)).toEqual([1, 2]);
   });
 });
 

@@ -105,7 +105,7 @@ export function mergeSortedArrays(arr1, arr2) {
  * @return {Array} Resulting array.
  */
 export function swapVariables([...arr], i = 1, j = 0) {
-  if (i < arr.length && j < arr.length) {
+  if (i >= 0 && j >= 0 && i < arr.length && j < arr.length) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
