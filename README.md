@@ -1,5 +1,6 @@
 # algorithms-with-tests
+## Description
 All algorithms from here: http://www.thatjsdude.com/interview/js1.html + Jest testing + ESLint
 
-# TODO
+## TODO
   * Add more tests for wrong types and corner cases
