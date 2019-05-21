@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "jest",
-    "jestwatch": "jest --watchAll"
+    "jw": "jest --watchAll"
   },
   "repository": {
     "type": "git",
