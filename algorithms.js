@@ -234,3 +234,17 @@ export function biggestSum(arr) {
 
   return (biggest || 0) + (bigger || 0);
 }
+
+/**
+ * Counts Total number of zeros from 1 upto n. DESC
+ * @param {number} n Number to count zeros from
+ * @return {number} Number of zeros in n
+ */
+export function countZeros(n) {
+  const arr = [...String(n)];
+  let accumulator = 0;
+  for (let i = arr.length - 2; i >= 0; i--) {
+    accumulator += arr[i] * (+'1'.repeat(arr.length - i - 1));
+  }
+  return accumulator;
+}

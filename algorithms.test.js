@@ -15,6 +15,7 @@ import {
   missingNumber,
   sumOfTwo,
   biggestSum,
+  countZeros,
 } from './algorithms';
 
 describe('isPrime', () => {
@@ -130,4 +131,18 @@ describe('biggestSum', () => {
   test('works with negative numbers', () => expect(biggestSum([-7, -11, -5, 4])).toBe(-1));
   test('works if array has length of 1', () => expect(biggestSum([6])).toBe(6));
   test('works if array has length of 0', () => expect(biggestSum([])).toBe(0));
+});
+
+describe('countZeros', () => {
+  test('Should find corect amount of zeros', () => {
+    expect(countZeros(10)).toBe(1);
+    expect(countZeros(145)).toBe(15);
+    expect(countZeros(2014)).toBe(223);
+  });
+  test('Should return 0 for 1-digit numbers', () => expect(countZeros(9)).toBe(0));
+  test('Should return NaN for not number inputs', () => {
+    expect(countZeros('abc')).toBeNaN();
+    expect(countZeros([1, 2, 3])).toBeNaN();
+    expect(countZeros({a: 1})).toBeNaN();
+  });
 });
