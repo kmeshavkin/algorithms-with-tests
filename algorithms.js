@@ -59,20 +59,21 @@ export function greatestCommonDivisor(a, b) {
 }
 
 /**
- * Removes duplicates from copy of provided number array, returning modified array.
- * @param {Array} arr Number array to remove duplicates from.
+ * Removes duplicates from copy of provided array, returning modified array.
+ * @param {Array} input Array to remove duplicates from.
  * @return {Array} Array without duplicates.
  */
-export function removeDuplicates(arr) {
+export function removeDuplicates(input) {
+  if (!(input instanceof Array)) return undefined;
   const memoryArr = [];
-  const returnArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (!memoryArr[arr[i]]) {
-      memoryArr[arr[i]] = true;
-      returnArr.push(arr[i]);
+  const output = [];
+  for (let i = 0; i < input.length; i++) {
+    if (!memoryArr[input[i]]) {
+      memoryArr[input[i]] = true;
+      output.push(input[i]);
     }
   }
-  return returnArr;
+  return output;
 }
 
 /**
@@ -82,6 +83,7 @@ export function removeDuplicates(arr) {
  * @return {Array} Merged sorted array.
  */
 export function mergeSortedArrays(arr1, arr2) {
+  if (!(arr1 instanceof Array) || !(arr2 instanceof Array)) return undefined;
   const returnArr = [];
   let i = 0;
   let j = 0;
@@ -100,23 +102,27 @@ export function mergeSortedArrays(arr1, arr2) {
 /**
  * Swaps variable without temp.
  * I modified this task a bit so it also returns testable code and made it a bit harder.
- * @param {Array} arr Input array.
+ * @param {Array|string} input Input Array/string.
  * @param {number} i Second index to swap.
  * @param {number} j First index to swap.
- * @return {Array} Resulting array.
+ * @return {Array|string} Resulting array/string.
  */
-export function swapVariables([...arr], i = 1, j = 0) {
-  if (i >= 0 && j >= 0 && i < arr.length && j < arr.length) {
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+export function swapVariables(input, i = 1, j = 0) {
+  if (((typeof input != 'string') && !(input instanceof Array))
+    || (typeof i != 'number') || (typeof j != 'number')) return undefined;
+  const output = [...input];
+  if (i >= 0 && j >= 0 && i < output.length && j < output.length) {
+    [output[i], output[j]] = [output[j], output[i]];
   }
-  return arr;
+  return (input instanceof Array) ? output : output.join('');
 }
 /**
  * Reverses all characters in string. It actually works for any type that has length (String or Array).
- * @param {string|Array} input Input string.
- * @return {string|Array} Reversed string.
+ * @param {Array|string} input Input string.
+ * @return {Array|string} Reversed string.
  */
 export function valuesReverse(input) {
+  if ((typeof input != 'string') && !(input instanceof Array)) return undefined;
   const output = [...input];
   for (let i = 0, j = output.length - 1; i < j; i++, j--) {
     [output[i], output[j]] = [output[j], output[i]];
@@ -130,6 +136,7 @@ export function valuesReverse(input) {
  * @return {string} String with words reversed.
  */
 export function reverseWords(str) {
+  if (typeof str != 'string') return undefined;
   return str.split(' ').reverse().join(' ');
 }
 
@@ -139,6 +146,7 @@ export function reverseWords(str) {
  * @return {string} String with reversed words.
  */
 export function reverseInPlace(str) {
+  if (typeof str != 'string') return undefined;
   return str
       .split(' ')
       .map((x) => x
@@ -154,6 +162,7 @@ export function reverseInPlace(str) {
  * @return {string} First non repeating char.
  */
 export function firstNonRepeatingChar(str) {
+  if (typeof str != 'string') return undefined;
   const hash = [];
   for (let i = 0; i < str.length; i++) {
     hash[str[i]] = (hash[str[i]] + 1) || 1;
@@ -170,6 +179,7 @@ export function firstNonRepeatingChar(str) {
  * @return {string} Resulting string with removed duplicates.
  */
 export function removeDuplicateChar(str) {
+  if (typeof str != 'string') return undefined;
   const hash = [];
   let outputStr = '';
   for (let i = 0; i < str.length; i++) {
@@ -185,6 +195,7 @@ export function removeDuplicateChar(str) {
  * @return {boolean} True if palindrome, otherwise false.
  */
 export function checkPalindrome(str) {
+  if (typeof str != 'string') return undefined;
   return (str.split('').reverse().join('') == str);
 }
 
@@ -193,21 +204,24 @@ export function checkPalindrome(str) {
  * @return {number} Missing number.
  */
 export function missingNumber(arr) {
+  if (!(arr instanceof Array)) return undefined;
   const fullSum = (arr.length + 2) * (arr.length + 1) / 2;
   let missingSum = 0;
   for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] != 'number') return undefined;
     missingSum += arr[i];
   }
   return fullSum - missingSum;
 }
 
 /**
- * Checks whether there are any two numbers that will sum up to a given numberin a unsorted array.
+ * Checks whether there are any two numbers that will sum up to a given number in a unsorted array.
  * @param {Array} arr Array to find pairs in.
  * @param {number} num Sum to find in array.
  * @return {boolean} Found pair or not.
  */
 export function sumOfTwo(arr, num = 0) {
+  if (!(arr instanceof Array) || (typeof num != 'number')) return undefined;
   const hash = [];
   for (let i = 0; i < arr.length; i++) {
     if (hash[arr[i]]) return true;
@@ -222,6 +236,7 @@ export function sumOfTwo(arr, num = 0) {
  * @return {number} Biggest sum.
  */
 export function biggestSum(arr) {
+  if (!(arr instanceof Array)) return undefined;
   let biggest = (arr[0] > arr[1]) ? arr[0] : arr[1];
   let bigger = (arr[0] > arr[1]) ? arr[1] : arr[0];
   for (let i = 0; i < arr.length; i++) {
@@ -243,6 +258,7 @@ export function biggestSum(arr) {
  * @return {number} Number of zeros in n.
  */
 export function countZeros(n) {
+  if (typeof n != 'number') return undefined;
   const arr = [...String(n)];
   let accumulator = 0;
   for (let i = arr.length - 2; i >= 0; i--) {
@@ -259,6 +275,7 @@ export function countZeros(n) {
  * @return {number} Index of substring if found, otherwise -1.
  */
 export function subString(str, substr) {
+  if ((typeof str != 'string') || (typeof substr != 'string')) return undefined;
   for (let i = 0; i < str.length; i++) {
     for (let j = 0; j < substr.length; j++) {
       if (substr[j] != str[i + j]) break;
@@ -276,6 +293,7 @@ export function subString(str, substr) {
  * @return {Array} All possible permutations of string.
  */
 export function permutations(str) {
+  if (typeof str != 'string') return undefined;
   if (str.length < 2) return [str];
   let arr = [];
   for (let i = 0; i < str.length; i++) {
